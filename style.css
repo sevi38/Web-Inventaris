@@ -1,0 +1,1237 @@
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #40506b;
+    line-height: 1.6;
+
+    /* GRADASI PINK - BIRU PASTEL */
+    background: linear-gradient(
+        120deg,
+        #e8f4ff,
+        #fce8f2,
+        #e9e4ff,
+        #e0f3ff
+    );
+
+    background-size: 400% 400%;
+    animation: gradientMove 14s ease infinite;
+
+    min-height: 100vh;
+    transition: 0.3s;
+}
+
+
+/* =========================================
+   ANIMASI GRADASI
+========================================= */
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header {
+    position: relative;
+
+    background: linear-gradient(
+        120deg,
+        #a9d8f5,
+        #d8c8f5,
+        #f2c9da,
+        #b9dcf5
+    );
+
+    background-size: 300% 300%;
+    animation: headerGradient 12s ease infinite;
+
+    color: white;
+    padding: 25px 20px;
+
+    box-shadow:
+        0 8px 30px rgba(120, 150, 190, 0.15);
+}
+
+@keyframes headerGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* =========================================
+   BRAND
+========================================= */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.brand-icon {
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255, 255, 255, 0.28);
+
+    border: 1px solid rgba(255, 255, 255, 0.45);
+
+    border-radius: 15px;
+
+    font-size: 25px;
+
+    backdrop-filter: blur(8px);
+
+    box-shadow:
+        0 5px 15px rgba(100, 130, 170, 0.12);
+}
+
+.header h1 {
+    font-size: 27px;
+    margin-bottom: 2px;
+    letter-spacing: -0.5px;
+}
+
+.header p {
+    opacity: 0.9;
+    font-size: 14px;
+}
+
+
+/* =========================================
+   DARK MODE BUTTON
+========================================= */
+
+.dark-btn {
+    width: 45px;
+    height: 45px;
+
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.25);
+
+    color: white;
+    font-size: 19px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    backdrop-filter: blur(8px);
+}
+
+.dark-btn:hover {
+    transform: rotate(15deg) scale(1.05);
+    background: rgba(255, 255, 255, 0.4);
+}
+
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.container {
+    max-width: 1200px;
+    margin: 35px auto;
+    padding: 0 20px;
+}
+
+
+/* =========================================
+   DASHBOARD
+========================================= */
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+    margin-bottom: 22px;
+}
+
+.stat-card {
+    position: relative;
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.76);
+
+    border: 1px solid rgba(255, 255, 255, 0.9);
+
+    border-radius: 18px;
+
+    padding: 22px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    box-shadow:
+        0 10px 30px rgba(100, 130, 170, 0.10);
+
+    backdrop-filter: blur(12px);
+
+    transition: 0.3s;
+}
+
+.stat-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 100px;
+    height: 100px;
+
+    border-radius: 50%;
+
+    right: -35px;
+    top: -40px;
+
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 35px rgba(100, 130, 170, 0.15);
+}
+
+.stat-card.total {
+    border-left: 4px solid #a8cfee;
+}
+
+.stat-card.baik {
+    border-left: 4px solid #a9d8c4;
+}
+
+.stat-card.rusak {
+    border-left: 4px solid #e8b4c8;
+}
+
+.stat-icon {
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    font-size: 23px;
+
+    background: linear-gradient(
+        135deg,
+        #e0f2ff,
+        #f6dff0
+    );
+}
+
+.stat-card p {
+    color: #7c8ba3;
+    font-size: 13px;
+    margin-bottom: 2px;
+}
+
+.stat-card h2 {
+    font-size: 28px;
+    color: #4e5e79;
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.card {
+    background: rgba(255, 255, 255, 0.82);
+
+    border: 1px solid rgba(255, 255, 255, 0.9);
+
+    padding: 27px;
+
+    border-radius: 20px;
+
+    margin-bottom: 22px;
+
+    box-shadow:
+        0 10px 35px rgba(100, 130, 170, 0.10);
+
+    backdrop-filter: blur(12px);
+}
+
+
+/* =========================================
+   SECTION TITLE
+========================================= */
+
+.section-label {
+    display: inline-block;
+
+    color: #8b78ad;
+
+    font-size: 11px;
+    font-weight: bold;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 4px;
+}
+
+.section-title h2,
+.section-header h2 {
+    color: #4e5e79;
+
+    font-size: 21px;
+
+    margin-bottom: 3px;
+}
+
+.section-title p {
+    color: #8996aa;
+    font-size: 13px;
+
+    margin-bottom: 22px;
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+
+    margin-bottom: 7px;
+
+    color: #596983;
+
+    font-size: 13px;
+}
+
+.form-group input,
+.form-group select,
+.filter-container input,
+.filter-container select {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    border: 1px solid #dce5ef;
+
+    border-radius: 11px;
+
+    font-size: 14px;
+
+    outline: none;
+
+    background: rgba(250, 252, 255, 0.9);
+
+    color: #53627a;
+
+    transition: 0.25s;
+}
+
+.form-group input::placeholder,
+.filter-container input::placeholder {
+    color: #aab4c3;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.filter-container input:focus,
+.filter-container select:focus {
+
+    border-color: #b8cde9;
+
+    background: white;
+
+    box-shadow:
+        0 0 0 4px rgba(190, 215, 240, 0.25);
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.form-buttons {
+    margin-top: 21px;
+
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    border: none;
+
+    padding: 11px 18px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+    font-size: 13px;
+
+    transition: 0.25s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 15px rgba(100, 120, 160, 0.15);
+}
+
+.btn-primary {
+    background: linear-gradient(
+        135deg,
+        #a9d8f5,
+        #cdb9eb
+    );
+
+    color: white;
+}
+
+.btn-secondary {
+    background: #aeb8c7;
+    color: white;
+}
+
+.btn-success {
+    background: #a9d8c4;
+    color: white;
+}
+
+.btn-info {
+    background: #aebfe4;
+    color: white;
+}
+
+.btn-warning {
+    background: #e4c39e;
+    color: white;
+}
+
+.btn-danger {
+    background: #dfa5bb;
+    color: white;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================================
+   SECTION HEADER
+========================================= */
+
+.section-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    color: #8996aa;
+    font-size: 13px;
+}
+
+.data-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+
+/* =========================================
+   FILTER
+========================================= */
+
+.filter-container {
+    display: grid;
+
+    grid-template-columns: 2fr 1fr 1fr;
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+}
+
+.search-box {
+    position: relative;
+}
+
+.search-box span {
+    position: absolute;
+
+    left: 13px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #91a1b6;
+
+    font-size: 18px;
+}
+
+.search-box input {
+    padding-left: 40px !important;
+}
+
+
+/* =========================================
+   TABLE
+========================================= */
+
+.table-container {
+    width: 100%;
+
+    overflow-x: auto;
+
+    border: 1px solid #edf0f5;
+
+    border-radius: 13px;
+}
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 850px;
+
+    background: rgba(255, 255, 255, 0.65);
+}
+
+thead {
+    background: linear-gradient(
+        90deg,
+        #edf7ff,
+        #f8edf5
+    );
+}
+
+th {
+    text-align: left;
+
+    padding: 14px;
+
+    color: #65758f;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.3px;
+}
+
+td {
+    padding: 14px;
+
+    border-bottom: 1px solid #edf0f5;
+
+    font-size: 13px;
+
+    color: #5f6d82;
+}
+
+tbody tr {
+    transition: 0.2s;
+}
+
+tbody tr:hover {
+    background: rgba(231, 243, 253, 0.5);
+}
+
+
+/* =========================================
+   BADGE
+========================================= */
+
+.badge {
+    display: inline-block;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+.badge-baik {
+    background: #e1f4eb;
+    color: #56856c;
+}
+
+.badge-ringan {
+    background: #fff1df;
+    color: #a27a4d;
+}
+
+.badge-berat {
+    background: #f9e1ea;
+    color: #a35c75;
+}
+
+
+/* =========================================
+   ACTION BUTTON
+========================================= */
+
+.action-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.action-btn {
+    border: none;
+
+    padding: 7px 10px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    color: white;
+
+    font-size: 11px;
+
+    transition: 0.2s;
+}
+
+.action-btn:hover {
+    transform: translateY(-1px);
+}
+
+.edit-btn {
+    background: #b8a3d8;
+}
+
+.delete-btn {
+    background: #dca1b8;
+}
+
+
+/* =========================================
+   EMPTY STATE
+========================================= */
+
+.empty-state {
+    text-align: center;
+
+    padding: 55px 20px;
+
+    color: #8996aa;
+}
+
+.empty-icon {
+    width: 65px;
+    height: 65px;
+
+    margin: 0 auto 13px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 20px;
+
+    font-size: 28px;
+
+    background: linear-gradient(
+        135deg,
+        #e4f3ff,
+        #f8e5f0
+    );
+}
+
+.empty-state h3 {
+    color: #5d6c83;
+
+    margin-bottom: 4px;
+
+    font-size: 17px;
+}
+
+.empty-state p {
+    font-size: 13px;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    text-align: center;
+
+    background: linear-gradient(
+        120deg,
+        #a9d4ed,
+        #cdbbe7,
+        #e8bfd0
+    );
+
+    background-size: 300% 300%;
+
+    animation: headerGradient 12s ease infinite;
+
+    color: white;
+
+    padding: 20px;
+
+    font-size: 12px;
+
+    margin-top: 30px;
+}
+
+footer span {
+    opacity: 0.8;
+}
+
+
+/* =========================================
+   DARK MODE — PASTEL NIGHT
+========================================= */
+
+body.dark {
+    color: #e9edf7;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(137, 174, 221, 0.14),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(211, 151, 190, 0.14),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #171c2b,
+            #222035,
+            #1c2838,
+            #292238
+        );
+
+    background-size: 180% 180%;
+    animation: darkGradientMove 16s ease infinite;
+}
+
+@keyframes darkGradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* =========================================
+   DARK HEADER
+========================================= */
+
+body.dark .header {
+    background:
+        linear-gradient(
+            120deg,
+            #344b68,
+            #51415f,
+            #68455c,
+            #36516b
+        );
+
+    background-size: 300% 300%;
+
+    animation: darkHeaderMove 14s ease infinite;
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.25);
+}
+
+@keyframes darkHeaderMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* =========================================
+   DARK BRAND
+========================================= */
+
+body.dark .brand-icon {
+    background: rgba(255, 255, 255, 0.10);
+
+    border-color: rgba(255, 255, 255, 0.16);
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================================
+   DARK STAT CARD
+========================================= */
+
+body.dark .stat-card,
+body.dark .card {
+    background: rgba(31, 37, 52, 0.86);
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.20);
+
+    backdrop-filter: blur(14px);
+}
+
+body.dark .stat-card:hover {
+    background: rgba(36, 43, 60, 0.92);
+
+    box-shadow:
+        0 16px 40px rgba(0, 0, 0, 0.28);
+}
+
+
+/* ICON STATISTIK */
+
+body.dark .stat-icon {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(143, 190, 226, 0.20),
+            rgba(216, 157, 195, 0.20)
+        );
+
+    color: #e6edf8;
+}
+
+
+/* =========================================
+   DARK TEXT
+========================================= */
+
+body.dark .header h1,
+body.dark .header p {
+    color: #ffffff;
+}
+
+body.dark .stat-card h2,
+body.dark .section-title h2,
+body.dark .section-header h2 {
+    color: #edf1f8;
+}
+
+body.dark .section-title p,
+body.dark .subtitle,
+body.dark .stat-card p {
+    color: #aeb8ca;
+}
+
+body.dark .section-label {
+    color: #c9b6e3;
+}
+
+body.dark .form-group label {
+    color: #d9dfeb;
+}
+
+
+/* =========================================
+   DARK INPUT
+========================================= */
+
+body.dark .form-group input,
+body.dark .form-group select,
+body.dark .filter-container input,
+body.dark .filter-container select {
+    background: rgba(20, 25, 37, 0.85);
+
+    color: #e9edf5;
+
+    border-color: #3e475b;
+}
+
+body.dark .form-group input::placeholder,
+body.dark .filter-container input::placeholder {
+    color: #727d91;
+}
+
+body.dark .form-group input:focus,
+body.dark .form-group select:focus,
+body.dark .filter-container input:focus,
+body.dark .filter-container select:focus {
+    background: #202738;
+
+    border-color: #91b9dc;
+
+    box-shadow:
+        0 0 0 4px rgba(137, 181, 220, 0.12);
+}
+
+
+/* =========================================
+   DARK BUTTON
+========================================= */
+
+body.dark .btn-primary {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(143, 190, 226, 0.20),
+            rgba(216, 157, 195, 0.20)
+        );
+        
+}
+
+body.dark .btn-secondary {
+    background: #515a6b;
+}
+
+body.dark .btn-success {
+    background: #6fa68e;
+}
+
+body.dark .btn-info {
+    background: #718db8;
+}
+
+body.dark .btn-warning {
+    background: #b28d61;
+}
+
+body.dark .btn-danger {
+    background: #b97891;
+}
+
+
+/* =========================================
+   DARK TABLE
+========================================= */
+
+body.dark .table-container {
+    border-color: rgba(255, 255, 255, 0.07);
+}
+
+body.dark table {
+    background: rgba(28, 34, 48, 0.85);
+}
+
+body.dark thead {
+    background:
+        linear-gradient(
+            90deg,
+            #2b394c,
+            #393047
+        );
+}
+
+body.dark th {
+    color: #dce3ef;
+
+    border-bottom-color: #414a5d;
+}
+
+body.dark td {
+    color: #c3ccda;
+
+    border-bottom-color: #343c4d;
+}
+
+body.dark tbody tr:hover {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(120, 166, 207, 0.08),
+            rgba(206, 143, 184, 0.08)
+        );
+}
+
+
+/* =========================================
+   DARK BADGE
+========================================= */
+
+body.dark .badge-baik {
+    background: rgba(107, 175, 143, 0.18);
+    color: #9bd2b4;
+}
+
+body.dark .badge-ringan {
+    background: rgba(211, 166, 104, 0.18);
+    color: #e0bb82;
+}
+
+body.dark .badge-berat {
+    background: rgba(207, 126, 157, 0.18);
+    color: #e2a0b9;
+}
+
+
+/* =========================================
+   DARK EMPTY STATE
+========================================= */
+
+body.dark .empty-state {
+    color: #9da8ba;
+}
+
+body.dark .empty-icon {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(137, 181, 220, 0.15),
+            rgba(211, 151, 190, 0.15)
+        );
+
+    color: #dbe4f2;
+}
+
+body.dark .empty-state h3 {
+    color: #e8edf5;
+}
+
+
+/* =========================================
+   DARK FOOTER
+========================================= */
+
+body.dark footer {
+    background:
+        linear-gradient(
+            120deg,
+            #283b50,
+            #44354d,
+            #513847
+        );
+
+    background-size: 300% 300%;
+
+    animation: darkHeaderMove 14s ease infinite;
+
+    color: #e5eaf3;
+}
+
+
+/* =========================================
+   DARK MODE BUTTON
+========================================= */
+
+body.dark .dark-btn {
+    background: rgba(255, 255, 255, 0.12);
+
+    border-color: rgba(255, 255, 255, 0.15);
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+body.dark .dark-btn:hover {
+    background: rgba(255, 255, 255, 0.20);
+
+    transform: rotate(-15deg) scale(1.05);
+}
+
+/* =========================================
+   RESPONSIVE TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .dashboard {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .stat-card:last-child {
+        grid-column: span 2;
+    }
+
+    .filter-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .search-box {
+        grid-column: span 2;
+    }
+}
+
+
+/* =========================================
+   RESPONSIVE HP
+========================================= */
+
+@media (max-width: 600px) {
+
+    .header {
+        padding: 18px 15px;
+    }
+
+    .brand-icon {
+        width: 45px;
+        height: 45px;
+
+        font-size: 21px;
+    }
+
+    .header h1 {
+        font-size: 20px;
+    }
+
+    .header p {
+        font-size: 12px;
+    }
+
+    .container {
+        margin: 20px auto;
+
+        padding: 0 12px;
+    }
+
+    .dashboard {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+    .stat-card:last-child {
+        grid-column: auto;
+    }
+
+    .card {
+        padding: 20px 16px;
+
+        border-radius: 17px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+    .section-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .data-buttons {
+        width: 100%;
+    }
+
+    .data-buttons .btn {
+        flex: 1;
+    }
+
+    .filter-container {
+        grid-template-columns: 1fr;
+    }
+
+    .search-box {
+        grid-column: auto;
+    }
+
+    .form-buttons {
+        flex-direction: column;
+    }
+
+    .form-buttons .btn {
+        width: 100%;
+    }
+
+    footer {
+        margin-top: 20px;
+    }
+}

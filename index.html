@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#8b6fc9">
+    <meta name="description" content="Aplikasi PWA Sistem Inventaris Ruangan">
+
+    <title>Inventaris Ruangan</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="icon.png">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-content">
+
+            <div class="brand">
+                <div class="brand-icon">📦</div>
+
+                <div>
+                    <h1>Inventaris Ruangan</h1>
+                    <p>Kelola data barang dengan lebih mudah</p>
+                </div>
+            </div>
+
+            <button id="darkModeBtn" class="dark-btn" aria-label="Ubah tema">
+                🌙
+            </button>
+
+        </div>
+    </header>
+
+
+    <main class="container">
+
+        <!-- RINGKASAN -->
+        <section class="dashboard">
+
+            <div class="stat-card total">
+                <div class="stat-icon">📦</div>
+
+                <div>
+                    <p>Total Barang</p>
+                    <h2 id="totalBarang">0</h2>
+                </div>
+            </div>
+
+
+            <div class="stat-card baik">
+                <div class="stat-icon">✓</div>
+
+                <div>
+                    <p>Kondisi Baik</p>
+                    <h2 id="barangBaik">0</h2>
+                </div>
+            </div>
+
+
+            <div class="stat-card rusak">
+                <div class="stat-icon">!</div>
+
+                <div>
+                    <p>Perlu Perhatian</p>
+                    <h2 id="barangRusak">0</h2>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- FORM -->
+        <section class="card">
+
+            <div class="section-title">
+                <span class="section-label">DATA BARANG</span>
+                <h2 id="formTitle">Tambah Inventaris</h2>
+                <p>Masukkan informasi barang yang ingin dicatat.</p>
+            </div>
+
+
+            <form id="inventarisForm">
+
+                <input type="hidden" id="editId">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="namaBarang">Nama Barang</label>
+
+                        <input
+                            type="text"
+                            id="namaBarang"
+                            placeholder="Contoh: Komputer"
+                            autocomplete="off"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="kodeInventaris">Kode Inventaris</label>
+
+                        <input
+                            type="text"
+                            id="kodeInventaris"
+                            placeholder="Contoh: INV-001"
+                            autocomplete="off"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="namaRuangan">Ruangan</label>
+
+                        <input
+                            type="text"
+                            id="namaRuangan"
+                            placeholder="Contoh: Lab Komputer"
+                            autocomplete="off"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="jumlahBarang">Jumlah</label>
+
+                        <input
+                            type="number"
+                            id="jumlahBarang"
+                            placeholder="Masukkan jumlah"
+                            min="1"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="kondisiBarang">Kondisi Barang</label>
+
+                        <select id="kondisiBarang" required>
+                            <option value="">Pilih kondisi</option>
+                            <option value="Baik">Baik</option>
+                            <option value="Rusak Ringan">Rusak Ringan</option>
+                            <option value="Rusak Berat">Rusak Berat</option>
+                        </select>
+                    </div>
+
+                </div>
+
+
+                <div class="form-buttons">
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                        id="submitBtn"
+                    >
+                        Simpan Data
+                    </button>
+
+                    <button
+                        type="button"
+                        class="btn btn-secondary hidden"
+                        id="cancelBtn"
+                    >
+                        Batal
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- DAFTAR BARANG -->
+        <section class="card inventory-card">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="section-label">INVENTARIS</span>
+                    <h2>Daftar Barang</h2>
+                    <p class="subtitle">
+                        Data barang yang tersimpan di perangkat ini.
+                    </p>
+                </div>
+
+
+                <div class="data-buttons">
+
+                    <button
+                        class="btn btn-success"
+                        id="exportBtn"
+                    >
+                        ↗ Export
+                    </button>
+
+                    <button
+                        class="btn btn-info"
+                        id="importBtn"
+                    >
+                        ↙ Import
+                    </button>
+
+                    <input
+                        type="file"
+                        id="importFile"
+                        accept=".json"
+                        hidden
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- PENCARIAN -->
+            <div class="filter-container">
+
+                <div class="search-box">
+                    <span>⌕</span>
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Cari barang atau kode..."
+                    >
+                </div>
+
+
+                <select id="filterRuangan">
+                    <option value="">Semua Ruangan</option>
+                </select>
+
+
+                <select id="filterKondisi">
+                    <option value="">Semua Kondisi</option>
+                    <option value="Baik">Baik</option>
+                    <option value="Rusak Ringan">Rusak Ringan</option>
+                    <option value="Rusak Berat">Rusak Berat</option>
+                </select>
+
+            </div>
+
+
+            <!-- TABEL -->
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Barang</th>
+                            <th>Kode</th>
+                            <th>Ruangan</th>
+                            <th>Jumlah</th>
+                            <th>Kondisi</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="inventarisTable"></tbody>
+
+                </table>
+
+            </div>
+
+
+            <!-- KOSONG -->
+            <div id="emptyState" class="empty-state">
+
+                <div class="empty-icon">📦</div>
+
+                <h3>Belum ada barang</h3>
+
+                <p>
+                    Tambahkan data inventaris melalui form di atas.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Inventaris Ruangan | PWA</p>
+        <span>Designed by Sevi & Virgi</span>
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+
